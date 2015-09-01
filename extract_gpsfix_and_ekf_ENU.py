@@ -3,7 +3,6 @@
 # -------------------------------------------------------------------------
 # Authors  : ETH (www.eth.ch), Timo Hinzmann, Andreas Schaffner (andschaf@ethz.ch)
 # Date     : 31.08.2015
-# Usage    : python viz.py -i inbag.bag -m model
 # -------------------------------------------------------------------------
 
 import getopt
@@ -104,18 +103,18 @@ def main(argv):
 		global_position_ned_d.append(global_position_ned_tmp[2])
 
    	    print "write gpsfix_positions.csv"
-	    writer = csv.writer(open("./gpsfix_positions.csv", 'w'), delimiter=',')
+	    writer = csv.writer(open("kml_extraction/gpsfix_positions.csv", 'w'), delimiter=',')
 	    for i in range(len(global_position_ned_n)):
 	     writer.writerow((global_position_time_ns[i], global_position_ned_e[i], global_position_ned_n[i], -global_position_ned_d[i], 0.0, 0.0, 0.0, 1.0))
 
  	    print "write gpsfix_covariances.csv"
-	    writer = csv.writer(open("./gpsfix_covariances.csv", 'w'), delimiter= ',')
+	    writer = csv.writer(open("kml_extraction/gpsfix_covariances.csv", 'w'), delimiter= ',')
 	    for i in range(len(global_position_covs)):
 	     global_position_cov = global_position_covs[i]
 	     writer.writerow((global_position_time_ns[i], global_position_cov[0], global_position_cov[1], global_position_cov[2], global_position_cov[3], global_position_cov[4], global_position_cov[5], global_position_cov[6], global_position_cov[7], global_position_cov[8]))
 
 	    print "write gpsfix_positions_llh.csv"
-	    writer = csv.writer(open("./gpsfix_positions_llh.csv", 'w'), delimiter=',')
+	    writer = csv.writer(open("kml_extraction/gpsfix_positions_llh.csv", 'w'), delimiter=',')
  	    for i in range(len(global_position_lat)) :
 	     writer.writerow((global_position_time_ns[i], global_position_lat[i], global_position_lon[i], global_position_alt[i]))
 
@@ -135,18 +134,18 @@ def main(argv):
 		ekf_position_ned_tmp = ekf_position.ecef2ned(ekf_position_ecef_tmp, origin_ekf_ecef)
    	    
 	    print "Write ekf_positions.csv"
-	    writer = csv.writer(open("./ekf_positions.csv", 'w'), delimiter = ',')
+	    writer = csv.writer(open("kml_extraction/ekf_positions.csv", 'w'), delimiter = ',')
 	    for i in range(len(ekf_position_ned_n)):
 	     writer.writerow((ekf_position_time_ns[i], ekf_position_ned_e[i], ekf_position_ned_n[i], -ekf_position_ned_d[i], 0.0, 0.0, 0.0, 1.0))
 
             print "Write ekf_covariances.csv"
-	    writer = csv.writer(open("./ekf_covariances.csv", 'w'), delimiter = ',')
+	    writer = csv.writer(open("kml_extraction/ekf_covariances.csv", 'w'), delimiter = ',')
 	    for i in range(len(ekf_position_covs)):
 	     ekf_position_cov = ekf_position_covs[i]
 	     writer.writerow((ekf_position_time_ns[i], ekf_position_cov[0], ekf_position_cov[1], ekf_position_cov[2], ekf_position_cov[3], ekf_position_cov[4], ekf_position_cov[5], ekf_position_cov[6], ekf_position_cov[7], ekf_position_cov[8]))
 
 	    print "Write ekf_positions_llh.csv"
-	    writer = csv.writer(open("./ekf_positions_llh.csv", 'w'), delimiter = ",")
+	    writer = csv.writer(open("kml_extraction/ekf_positions_llh.csv", 'w'), delimiter = ",")
 	    for i in range(len(ekf_position_lat)):
 	     writer.writerow((ekf_position_time_ns[i], ekf_position_lat[i], ekf_position_lon[i], ekf_position_alt[i]))
 	    

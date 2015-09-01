@@ -17,8 +17,8 @@ swe_app_standard = {"v":"1",
 "swe_sigma_position_initial":"1.0e2",
 "swe_sigma_velocity_initial":"20.0",
 
-"swe_vinode_csv_path_filename":"./swe_positions.csv",
-"swe_vinode_covariance_csv_path_filename":"./swe_covariances.csv",
+"swe_vinode_csv_path_filename":"kml_extraction/swe_positions.csv",
+"swe_vinode_covariance_csv_path_filename":"kml_extraction/swe_covariances.csv",
 }
 
 swe_app_optional = {
@@ -51,11 +51,11 @@ swe_app_Techpod = {
 }
 
 swe_dataset_evaluation = {
-"filename_in_estimated_trajectory":"./swe_positions.csv",
-"filename_covariances":"./swe_covariances.csv",
-"filename_out_prefix":"./swe_",
-"filename_in_groundtruth_trajectory":"./gpsfix_positions.csv",
-"filename_gpsfix_covariances":"./gpsfix_covariances.csv",
+"filename_in_estimated_trajectory":"kml_extraction/swe_positions.csv",
+"filename_covariances":"kml_extraction/swe_covariances.csv",
+"filename_out_prefix":"kml_extraction/swe_",
+"filename_in_groundtruth_trajectory":"kml_extraction/gpsfix_positions.csv",
+"filename_gpsfix_covariances":"kml_extraction/gpsfix_covariances.csv",
 }
 
 
